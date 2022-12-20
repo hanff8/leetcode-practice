@@ -33,5 +33,5 @@
         "algorithm": "cpp",
         "bitset": "cpp",
         "climits": "cpp"
-    },
+    }
 }
