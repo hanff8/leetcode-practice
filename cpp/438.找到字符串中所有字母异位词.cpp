@@ -31,8 +31,11 @@ class Solution {
         }
 
         for (int l = 0, r = 0; r < s.size(); ++r) {
+
             --arr[s[r] - 'a'];
+            //  不进while循环则表示字符匹配成功
             while (arr[s[r] - 'a'] < 0) {
+                //字符匹配失败，还原arr表，同时左窗口右移
                 ++arr[s[l] - 'a'];
                 ++l;
             }
