@@ -22,23 +22,23 @@
 using namespace std;
 // @lc code=start
 class Solution {
-public:
-  int lengthOfLongestSubstring(string s) {
-    unordered_set<char> arr;
-    int n = s.size();
-    int left = -1, maxlength;
-    for (int i = 0; i < n; ++i) {
-      if (i != 0) {
-        arr.erase(s[i - 1]);
-      }
-      while (left + 1 < n && !arr.count(s[left + 1])) {
-        arr.insert(s[left + 1]);
-        ++left;
-      }
-      maxlength = max(maxlength, left - i + 1);
+  public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_set<char> arr;
+        int n = s.size();
+        int left = -1, maxlength = 0;
+        for (int i = 0; i < n; ++i) {
+            if (i != 0) {
+                arr.erase(s[i - 1]);
+            }
+            while (left + 1 < n && !arr.count(s[left + 1])) {
+                arr.insert(s[left + 1]);
+                ++left;
+            }
+            maxlength = max(maxlength, left - i + 1);
+        }
+        return maxlength;
     }
-    return maxlength;
-  }
 };
 // @lc code=end
 
