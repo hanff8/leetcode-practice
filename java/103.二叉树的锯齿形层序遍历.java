@@ -1,6 +1,8 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
@@ -8,10 +10,10 @@ import java.util.List;
 import javax.swing.tree.TreeNode;
 
 /*
- * @lc app=leetcode.cn id=102 lang=java
- * @lcpr version=21401
+ * @lc app=leetcode.cn id=103 lang=java
+ * @lcpr version=21504
  *
- * [102] 二叉树的层序遍历
+ * [103] 二叉树的锯齿形层序遍历
  */
 
 // @lc code=start
@@ -31,34 +33,42 @@ import javax.swing.tree.TreeNode;
  * }
  */
 class Solution {
-    public List<List<Integer>> levelOrder(TreeNode root) {
-        Deque<TreeNode> que = new LinkedList<>();
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
+        ArrayDeque<TreeNode> que = new ArrayDeque<>();
         if (root == null)
             return res;
-        res.add(Arrays.asList(root.val));
         que.add(root);
+        // res.add(Arrays.asList(root.val));
+        int level = 2;
         while (!que.isEmpty()) {
-            int n = que.size();
-            var list = new ArrayList<Integer>();
-            for (int i = 0; i < n; i++) {
+            int currentSize = que.size();
+            ArrayList<Integer> list = new ArrayList<Integer>();
+            for (int i = 0; i < currentSize; i++) {
                 TreeNode node = que.poll();
-                if (node.left != null) {
-                    list.add(node.left.val);
+                if (node.left != null)
                     que.add(node.left);
-                }
-                if (node.right != null) {
-                    list.add(node.right.val);
+                if (node.right != null)
                     que.add(node.right);
-                }
+                list.add(node.val);
             }
-            if (!list.isEmpty())
+            if (level % 2 != 0) {
+                Collections.reverse(list);
+            }
+            if (list.size() > 0)
                 res.add(list);
+            ++level;
         }
         return res;
     }
 }
 // @lc code=end
+
+// @lcpr-div-debug-arg-start
+// funName=
+// paramTypes= []
+// returnType=
+// @lcpr-div-debug-arg-end
 
 /*
  * // @lcpr case=start
