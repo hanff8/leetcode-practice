@@ -12,24 +12,27 @@ import java.util.Map;
 // @lc code=start
 class Solution {
     public int balancedString(String s) {
-        Map<Character, Integer> hashmap = new HashMap<>();
-        hashmap.put('Q', 0);
-        hashmap.put('R', 0);
-        hashmap.put('W', 0);
-        hashmap.put('E', 0);
-        int res = 0;
-        for (int i = 0; i < s.length(); i++) {
-            hashmap.put(s.charAt(i), hashmap.get(s.charAt(i)) + 1);
+        int n = s.length();
+        int m = n / 4;
+        int left = 0, right = 0;
+        var chs = s.toCharArray();
+        int[] arr = new int['X'];
+        // 先统计字符串中每个字符出现的次数
+        for (char chs2 : chs) {
+            arr[chs2]++;
         }
-        int times = s.length() / 4;
-        System.out.println("length:" + s.length() + " times:" + times);
-        for (var val : hashmap.entrySet()) {
-            System.out.println(val.getKey() + ":" + val.getValue());
-            if (val.getValue() != times) {
-                res += val.getValue() - times;
+        int ans = n;
+        if (arr['Q'] == m && arr['W'] == m && arr['E'] == m && arr['R'] == m)
+            return 0;
+        for (right = 0; right < n; ++right) {
+            --arr[chs[right]];
+            System.out.println(arr[chs[right]]);
+            while (arr['Q'] <= m && arr['W'] <= m && arr['E'] <= m && arr['R'] <= m) {
+                ans = Math.min(ans, right - left + 1);
+                ++arr[chs[left++]]; // 缩小子串
             }
         }
-        return res;
+        return ans;
     }
 }
 // @lc code=end
