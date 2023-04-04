@@ -33,5 +33,9 @@
         "algorithm": "cpp",
         "bitset": "cpp",
         "climits": "cpp"
-    }
+    },
+    "[java]": {
+        "editor.insertSpaces": false
+    },
+    "java.format.settings.url": ".vscode/eclipse-java-google-style.xml"
 }
