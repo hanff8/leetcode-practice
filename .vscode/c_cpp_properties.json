@@ -3,10 +3,10 @@
         {
             "name": "clang",
             "intelliSenseMode": "clang-x64",
-            "compilerPath": "D:\\MyDevEnv\\llvm\\bin\\clang.exe",
+            "compilerPath": "D:\\MyDevEnv\\msys64\\clang64\\bin\\clang.exe",
             "includePath": [
                 "${workspaceFolder}",
-                "D:/MyDevEnv/msys2/clang64/include/c++/v1/**"
+                "D:/MyDevEnv/msys64/clang64/include/c++/v1/**"
             ],
             "defines": [],
             "browse": {
