@@ -8,13 +8,14 @@
 
 // @lc code=start
 class Solution {
-    public String longestPalindrome(String s) {
-        int n = s.length();
-        int[] store = new int[n + 1];
-        for (int i = 0; i < n; i++) {
+	public String longestPalindrome(String s) {
+		int n = s.length();
+		int[] store = new int[n + 1];
+		for (int i = 0; i < n; i++) {
 
-        }
-    }
+		}
+		return "";
+	}
 }
 // @lc code=end
 
