@@ -4,6 +4,9 @@
  *
  * [1015] 可被 K 整除的最小整数
  */
+package leetcode_go
+
+import "fmt"
 
 // @lc code=start
 func smallestRepunitDivByK(k int) int {

@@ -4,7 +4,7 @@
  *
  * [1330] 翻转子数组得到最大的数组值
  */
-package main
+package leetcode_go
 
 import "math"
 

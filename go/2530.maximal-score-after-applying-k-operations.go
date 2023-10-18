@@ -1,0 +1,63 @@
+/*
+ * @lc app=leetcode.cn id=2530 lang=golang
+ * @lcpr version=30102
+ *
+ * [2530] 执行 K 次操作后的最大分数
+ */
+
+// @lcpr-template-start
+package leetcode_go
+
+import "container/heap"
+
+// @lcpr-template-end
+// @lc code=start
+
+type PriorityQueue []int
+
+func (pq PriorityQueue) Swap(i, j int) {
+	pq[i], pq[j] = pq[j], pq[i]
+}
+func (pq PriorityQueue) Len() int {
+	return len(pq)
+}
+
+func (pq PriorityQueue) Less(i, j int) bool {
+	return pq[i] > pq[j]
+}
+
+func (pq *PriorityQueue) Push(x any) {
+	*pq = append(*pq, x.(int))
+}
+
+func (pq *PriorityQueue) Pop() any {
+	n := len(*pq)
+	x := (*pq)[n-1]
+	*pq = (*pq)[:n-1]
+	return x
+}
+
+func maxKelements(nums []int, k int) int64 {
+	q := (*PriorityQueue)(&nums)
+	heap.Init(q)
+	var ans int64
+	for i := 0; i < k; i++ {
+		x := heap.Pop(q).(int)
+		ans += int64(x)
+		heap.Push(q, (x+2)/3)
+	}
+	return ans
+}
+
+// @lc code=end
+
+/*
+// @lcpr case=start
+// [10,10,10,10,10]\n5\n
+// @lcpr case=end
+
+// @lcpr case=start
+// [1,10,3,3,3]\n3\n
+// @lcpr case=end
+
+*/

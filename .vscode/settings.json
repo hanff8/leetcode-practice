@@ -35,6 +35,12 @@
                 "import java.util.ArrayDeque;",
                 "import java.util.Deque;",
             ]
+        },
+        {
+            "language": "golang",
+            "template": [
+                "package leetcode_go"
+            ]
         }
     ],
     "leetcode-problem-rating.answerDiffColor": true,
