@@ -56,7 +56,6 @@
         "editor.insertSpaces": false
     },
     "java.format.settings.url": ".vscode/eclipse-java-google-style.xml",
-    "java.debug.settings.onBuildFailureProceed": true,
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.autoImportCompletions": true
 }
