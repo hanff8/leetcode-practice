@@ -23,28 +23,29 @@
 using namespace std;
 // @lc code=start
 class Solution {
-public:
+  public:
     bool areNumbersAscending(string s) {
         int pre = -1;
         istringstream is(s);
-        
-        for (int i=0; i<s.size();) {
-            if(s[i]>='0'&&s[i]<='9'&&s[i+1]>='0'&&s[i+1]<='9'){
-                string temp = s.substr(i,2);
-                int num = (s[i]-'0')*10+(s[i+1]-'0');
-                if(num>pre)
+
+        for (int i = 0; i < s.size();) {
+            if (s[i] >= '0' && s[i] <= '9' && s[i + 1] >= '0' &&
+                s[i + 1] <= '9') {
+                string temp = s.substr(i, 2);
+                int num = (s[i] - '0') * 10 + (s[i + 1] - '0');
+                if (num > pre)
                     pre = num;
                 else
                     return false;
-                i=i+2;
-            }else if (s[i]>='0'&&s[i]<='9') {
-                int num = s[i]-'0';
-                if(num>pre)
-                    pre=num;
+                i = i + 2;
+            } else if (s[i] >= '0' && s[i] <= '9') {
+                int num = s[i] - '0';
+                if (num > pre)
+                    pre = num;
                 else
                     return false;
                 ++i;
-            }else {
+            } else {
                 ++i;
             }
         }
@@ -53,7 +54,10 @@ public:
 };
 // @lc code=end
 
-
+// @lcpr-div-debug-arg-start
+// funName=areNumbersAscending
+// paramTypes= ["string"]
+// @lcpr-div-debug-arg-end
 
 /*
 // @lcpr case=start
@@ -73,5 +77,3 @@ public:
 // @lcpr case=end
 
  */
-
-
