@@ -13,7 +13,7 @@ package leetcode_go
 func numRollsToTarget(n int, k int, target int) int {
 	memo := make([][]int, n+1)
 	for i := range memo {
-		memo[i] = make([]int, target-n+)
+		memo[i] = make([]int, target-n+1)
 		for j := range memo[i] {
 			memo[i][j] = -1
 		}
